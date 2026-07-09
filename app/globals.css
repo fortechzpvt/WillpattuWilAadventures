@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ──────────────────────────────────────── */
+:root {
+  --cream-rgb: 245 245 211;   /* #F5F5D3 — fern whisper   */
+  --dark-rgb:  51 53 44;      /* #33352C — deepwood shade  */
+  --brown-rgb: 76 43 18;      /* #4C2B12 — timber breeze  */
+  --gold-rgb:  187 137 84;    /* #BB8954 — earthy drift    */
+  --rust-rgb:  127 82 53;     /* #7F5235 — forest floor   */
+  --sage-rgb:  121 130 98;    /* #798262 — canopy green   */
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: rgb(var(--cream-rgb));
+  color: rgb(var(--dark-rgb));
+  font-family: "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: rgb(var(--cream-rgb)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--gold-rgb)); border-radius: 0; }
+
+/* ── Selection ──────────────────────────────────────────── */
+::selection { background-color: rgb(var(--gold-rgb)); color: rgb(var(--cream-rgb)); }
+
+/* ── Utilities ──────────────────────────────────────────── */
+@layer utilities {
+  .font-display { font-family: "Playfair Display", Georgia, serif; }
+}
