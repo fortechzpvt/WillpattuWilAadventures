@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { withBasePath } from "@/lib/basePath";
 
 const specs = [
   {
@@ -34,12 +33,11 @@ const specs = [
 ];
 
 export default function JeepPage() {
-  // Raw GitHub URL for the jeep image
   const jeepImageUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/safari-jeep.jpg";
+  const jeepVideoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/jeep-bg.mp4";
 
   return (
     <div className="min-h-screen relative">
-
       {/* Video background */}
       <video
         autoPlay
@@ -49,7 +47,7 @@ export default function JeepPage() {
         className="fixed inset-0 w-full h-full object-cover -z-10"
         aria-hidden="true"
       >
-        <source src={withBasePath("/assets/jeep-bg.mp4")} type="video/mp4" />
+        <source src={jeepVideoUrl} type="video/mp4" />
       </video>
 
       {/* Dark overlay */}
@@ -71,8 +69,6 @@ export default function JeepPage() {
       {/* Hero — text left, jeep right */}
       <div className="px-[7%] pt-10 pb-16 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* Left: text */}
           <div>
             <motion.span
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
@@ -107,7 +103,6 @@ export default function JeepPage() {
             />
           </div>
 
-          {/* Right: jeep photo */}
           <motion.div
             initial={{ opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -125,11 +120,10 @@ export default function JeepPage() {
               Custom 4WD Build · Toyota Hilux · Wilpattu National Park
             </p>
           </motion.div>
-
         </div>
       </div>
 
-      {/* Specs Section remains identical */}
+      {/* Specs */}
       <div className="px-[7%] pb-24 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {specs.map(({ title, desc, icon }, i) => (
@@ -158,7 +152,7 @@ export default function JeepPage() {
           ))}
         </div>
 
-        {/* CTA remains identical */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
