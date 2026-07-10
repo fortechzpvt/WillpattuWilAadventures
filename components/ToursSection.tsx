@@ -23,8 +23,8 @@ export default function ToursSection() {
   const getTourImage = (idx: string, originalImage: string) => {
     const customImages: Record<string, string> = {
       "01": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/_originals_backup/tharaka.jpg",
-      "02": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bird-watching.jpg",
-      "03": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg",
+      "02": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg",
+      "03": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bird-watching.jpg",
     };
     return customImages[idx] || withBasePath(originalImage);
   };
