@@ -26,10 +26,10 @@ export const tours: Tour[] = [
     desc: "Three time-crafted options revealing distinct facets of Wilpattu's wildlife, from leopard-rich dawn hours to golden-hour elephant encounters.",
     pkg: "Day Safari",
     items: [
-      { name: "Half-Day Morning Safari", info: "Enter as mist lifts from the villu lakes. Wilpattu's highest big-cat sighting rate at dawn.", badge: "6.00AM TO 12.00PM",
+      { name: "Half-Day Morning Safari", info: "Enter as mist lifts from the villu lakes. Wilpattu's highest big-cat sighting rate at dawn.", badge: "6.00AM TO 10.30PM",
         detail: "Explore the park during the cool morning hours when wildlife is most active.",
         benefit: "Best chance to spot predators and enjoy pleasant weather." },
-      { name: "Half-Day Afternoon Safari", info: "Golden-hour photography, active elephant herds, sloth bear encounters before sunset.", badge: "2.30PM TO 6.00PM",
+      { name: "Half-Day Afternoon Safari", info: "Golden-hour photography, active elephant herds, sloth bear encounters before sunset.", badge: "2.00PM TO 6.00PM",
         detail: "Experience the park as animals become active later in the day.",
         benefit: "Beautiful golden-hour lighting and excellent photography opportunities." },
       { name: "Full-Day Expedition", info: "Sunrise to dusk, deep zone exploration, bush lunch included, maximum wildlife encounters.", badge: "6.00AM TO 6.00PM",
@@ -51,6 +51,9 @@ export const tours: Tour[] = [
       { name: "Panikkawila", info: "", badge: "" },
       { name: "Mahawewa Bungalow", info: "", badge: "" },
       { name: "Manikwila Bungalow", info: "", badge: "" },
+      { name: "Kokmote bungalow ", info: "", badge: "" },
+      { name: "Maradanmaduwa Wildlife Dormitory ", info: "", badge: "" },
+      
     ],
   },
   {
