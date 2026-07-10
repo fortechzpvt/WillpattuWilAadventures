@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
-import { withBasePath } from "@/lib/basePath";
 
 interface Review {
   initials: string;
@@ -68,6 +67,9 @@ export default function ReviewsSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoNearView = useInView(sectionRef, { once: true, margin: "200px" });
 
+  // Raw GitHub URL for the reviews background video
+  const videoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/reviews-bg.mp4";
+
   useEffect(() => {
     if (videoNearView) videoRef.current?.play().catch(() => {});
   }, [videoNearView]);
@@ -122,7 +124,7 @@ export default function ReviewsSection() {
       className="relative py-[92px] px-[7%] overflow-hidden"
       style={{ background: "rgb(var(--brown-rgb))" }}
     >
-      {/* Video background (loaded only once the section nears the viewport) */}
+      {/* Video background */}
       {videoNearView && (
         <video
           ref={videoRef}
@@ -133,7 +135,7 @@ export default function ReviewsSection() {
           className="absolute inset-0 w-full h-full object-cover"
           aria-hidden="true"
         >
-          <source src={withBasePath("/assets/reviews-bg.mp4")} type="video/mp4" />
+          <source src={videoUrl} type="video/mp4" />
         </video>
       )}
 
@@ -145,8 +147,7 @@ export default function ReviewsSection() {
       />
 
       <div ref={ref} className="max-w-7xl mx-auto relative z-10">
-
-        {/* Heading */}
+        {/* Heading remains the same */}
         <div className="text-center mb-12">
           <motion.span
             initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -177,7 +178,7 @@ export default function ReviewsSection() {
           />
         </div>
 
-        {/* Track */}
+        {/* Track and rest of component remains identical */}
         <div className="overflow-hidden">
           <div
             ref={trackRef}
@@ -209,33 +210,13 @@ export default function ReviewsSection() {
                   border: "1px solid rgba(245,245,211,0.09)",
                 }}
               >
-                {/* Opening quote decoration */}
-                <span
-                  className="absolute top-3.5 right-5 font-display text-gold/[0.08] pointer-events-none select-none leading-none"
-                  style={{ fontSize: "5rem" }}
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-
-                {/* Stars */}
+                <span className="absolute top-3.5 right-5 font-display text-gold/[0.08] pointer-events-none select-none leading-none" style={{ fontSize: "5rem" }} aria-hidden="true">&ldquo;</span>
                 <div className="flex gap-0.5 mb-3.5" aria-label="5 stars">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className="text-gold" style={{ fontSize: "0.92rem" }}>&#9733;</span>
-                  ))}
+                  {Array.from({ length: 5 }).map((_, i) => (<span key={i} className="text-gold" style={{ fontSize: "0.92rem" }}>&#9733;</span>))}
                 </div>
-
-                <p className="font-sans text-[0.84rem] text-cream/75 leading-[1.78] italic mb-6">
-                  &ldquo;{r.text}&rdquo;
-                </p>
-
+                <p className="font-sans text-[0.84rem] text-cream/75 leading-[1.78] italic mb-6">&ldquo;{r.text}&rdquo;</p>
                 <div className="flex items-center gap-3.5">
-                  <div
-                    className="w-[38px] h-[38px] rounded-full flex-shrink-0 bg-gold text-dark
-                               flex items-center justify-center font-sans font-bold text-[0.84rem]"
-                  >
-                    {r.initials}
-                  </div>
+                  <div className="w-[38px] h-[38px] rounded-full flex-shrink-0 bg-gold text-dark flex items-center justify-center font-sans font-bold text-[0.84rem]">{r.initials}</div>
                   <div>
                     <p className="font-sans text-[0.86rem] font-semibold text-cream">{r.name}</p>
                     <p className="font-sans text-[0.7rem] text-cream/40 mt-0.5">{r.from}</p>
@@ -247,47 +228,16 @@ export default function ReviewsSection() {
           </div>
         </div>
 
-        {/* Controls */}
+        {/* Controls remain identical */}
         <div className="flex justify-center items-center gap-3 mt-9">
-          <button
-            onClick={() => { go(idx - 1); reset(); }}
-            className="w-[42px] h-[42px] rounded-full flex items-center justify-center
-                       border border-gold/28 text-gold
-                       hover:bg-gold hover:text-dark hover:border-gold transition-all duration-200"
-            style={{ background: "rgba(187,137,84,0.12)" }}
-            aria-label="Previous review"
-          >
-            &#8592;
-          </button>
-
+          <button onClick={() => { go(idx - 1); reset(); }} className="w-[42px] h-[42px] rounded-full flex items-center justify-center border border-gold/28 text-gold hover:bg-gold hover:text-dark hover:border-gold transition-all duration-200" style={{ background: "rgba(187,137,84,0.12)" }} aria-label="Previous review">&#8592;</button>
           <div className="flex gap-1.5">
             {reviews.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => { go(i); reset(); }}
-                aria-label={`Review ${i + 1}`}
-                className="h-1.5 rounded-full transition-all duration-200"
-                style={{
-                  width: i === idx ? 20 : 6,
-                  background: i === idx ? "rgb(var(--gold-rgb))" : "rgba(187,137,84,0.22)",
-                  borderRadius: i === idx ? 3 : "50%",
-                }}
-              />
+              <button key={i} onClick={() => { go(i); reset(); }} aria-label={`Review ${i + 1}`} className="h-1.5 rounded-full transition-all duration-200" style={{ width: i === idx ? 20 : 6, background: i === idx ? "rgb(var(--gold-rgb))" : "rgba(187,137,84,0.22)", borderRadius: i === idx ? 3 : "50%", }} />
             ))}
           </div>
-
-          <button
-            onClick={() => { go(idx + 1); reset(); }}
-            className="w-[42px] h-[42px] rounded-full flex items-center justify-center
-                       border border-gold/28 text-gold
-                       hover:bg-gold hover:text-dark hover:border-gold transition-all duration-200"
-            style={{ background: "rgba(187,137,84,0.12)" }}
-            aria-label="Next review"
-          >
-            &#8594;
-          </button>
+          <button onClick={() => { go(idx + 1); reset(); }} className="w-[42px] h-[42px] rounded-full flex items-center justify-center border border-gold/28 text-gold hover:bg-gold hover:text-dark hover:border-gold transition-all duration-200" style={{ background: "rgba(187,137,84,0.12)" }} aria-label="Next review">&#8594;</button>
         </div>
-
       </div>
     </section>
   );
