@@ -79,10 +79,77 @@ export default function WilpattuSection() {
   return (
     <section id="wilpattu" className="py-[92px] px-[7%] bg-cream">
       <div ref={ref} className="max-w-7xl mx-auto">
-        {/* Two-column layout remains same */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* ... (Keep your existing text/facts JSX here) ... */}
-            {/* (Note: I removed the intermediate JSX for brevity, but keep your original structure) */}
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-block border border-sage/22 text-sage font-sans text-[0.6rem] font-bold tracking-[3px] uppercase px-3.5 py-1.5 rounded-sm mb-4"
+            >
+              About the Park
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 18 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="font-display font-bold text-brown leading-[1.18] mb-5"
+              style={{ fontSize: "clamp(1.8rem, 3.2vw, 2.75rem)" }}
+            >
+              Wilpattu National Park
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <p className="font-sans text-[0.9rem] text-dark/72 leading-[1.85] mb-4">
+                Wilpattu National Park is Sri Lanka's largest and oldest national park, located along the northwest coast. Its name means "Land of Lakes" in Sinhala, a reference to the natural lakes called <em className="not-italic font-semibold text-brown">villus</em> that define its unique landscape.
+              </p>
+              <p className="font-sans text-[0.9rem] text-dark/72 leading-[1.85] mb-4">
+                Unlike the crowded Yala in the south, Wilpattu remains relatively undiscovered, offering vast, silent wilderness where leopards roam freely across open scrub, sloth bears forage undisturbed, and elephants move through ancient dry-zone forest.
+              </p>
+              <p className="font-sans text-[0.9rem] text-dark/72 leading-[1.85]">
+                The park's network of villu lakes attracts an extraordinary concentration of wildlife at water's edge, making it one of the finest leopard-viewing destinations in all of Asia and a paradise for birders seeking Sri Lanka's resident and migratory species.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ scaleX: 0 }} animate={inView ? { scaleX: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="w-9 h-0.5 bg-gold mt-8 origin-left"
+            />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 22 }} animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="grid grid-cols-2 gap-4"
+          >
+            {facts.map(({ value, label }) => (
+              <div
+                key={label}
+                className="flex flex-col justify-center p-8 rounded-[10px] border border-sage/20"
+                style={{ background: "rgba(121,130,98,0.06)" }}
+              >
+                <span
+                  className="font-display font-black text-brown mb-2 leading-none"
+                  style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}
+                >
+                  {value}
+                </span>
+                <span className="font-sans text-[0.75rem] text-dark/55 leading-[1.4] uppercase tracking-[1px]">
+                  {label}
+                </span>
+              </div>
+            ))}
+            <div
+              className="col-span-2 p-6 rounded-[10px]"
+              style={{ background: "linear-gradient(135deg, rgb(var(--brown-rgb)), rgb(var(--rust-rgb)))" }}
+            >
+              <p className="font-display font-bold text-cream mb-1" style={{ fontSize: "1.1rem" }}>
+                Sri Lanka's Leopard Capital
+              </p>
+              <p className="font-sans text-[0.82rem] text-cream/65 leading-[1.65]">
+                Wilpattu holds one of the highest densities of Sri Lankan leopards (<em className="not-italic font-semibold text-cream/85">Panthera pardus kotiya</em>) anywhere in the world, a subspecies found nowhere else on earth.
+              </p>
+            </div>
+          </motion.div>
         </div>
 
         {/* ── Wildlife gallery ── */}
@@ -101,7 +168,6 @@ export default function WilpattuSection() {
               transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             />
           </motion.div>
-
           <div className="columns-2 md:columns-3 lg:columns-4 gap-3">
             {photos.map(({ src, alt, caption }, i) => (
               <GalleryPhoto
@@ -114,7 +180,39 @@ export default function WilpattuSection() {
             ))}
           </div>
         </div>
-        {/* ... (Keep your map section) ... */}
+
+        {/* ── Map ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <p className="font-sans text-[0.62rem] font-bold tracking-[2.5px] uppercase text-dark/38">
+              Park Location · North Western Province, Sri Lanka
+            </p>
+            <a
+              href="https://www.google.com/maps/place/Wilpattu+National+Park"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-[0.72rem] text-sage hover:text-brown transition-colors duration-200 underline underline-offset-2"
+            >
+              Open in Google Maps
+            </a>
+          </div>
+          <div className="w-full rounded-[10px] overflow-hidden border border-sage/20" style={{ height: 380 }}>
+            <iframe
+              title="Wilpattu National Park map"
+              src="https://maps.google.com/maps?q=Wilpattu+National+Park,+Sri+Lanka&t=&z=10&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: "saturate(0.85) contrast(1.05)" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );
