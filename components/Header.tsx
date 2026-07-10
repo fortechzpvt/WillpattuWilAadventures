@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { withBasePath } from "@/lib/basePath";
 
 const navItems = [
   { label: "Tours",    href: "#tours"   },
@@ -21,6 +20,9 @@ export default function Header() {
   const [scrolled, setScrolled]   = useState(false);
   const [hidden, setHidden]        = useState(false);
   const [menuOpen, setMenuOpen]    = useState(false);
+
+  // Logo URL from GitHub
+  const logoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/logo.png";
 
   useEffect(() => {
     const onScroll = () => {
@@ -60,7 +62,7 @@ export default function Header() {
             className="flex items-center gap-3"
           >
             <Image
-              src={withBasePath("/assets/logo.png")}
+              src={logoUrl}
               alt="Wilpattu Wild Adventures"
               width={728}
               height={343}
