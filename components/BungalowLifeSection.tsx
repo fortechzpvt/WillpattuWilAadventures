@@ -85,11 +85,14 @@ const safetyRules = [
 ];
 
 export default function BungalowLifeSection() {
+  // Raw GitHub URL for the bungalow background
+  const bungalowBgUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg";
+
   return (
     <section className="relative py-12 px-[7%] overflow-hidden">
       {/* Background photo */}
       <Image
-        src={withBasePath("/assets/bungalow-life-bg.jpg")}
+        src={bungalowBgUrl}
         alt=""
         fill
         className="object-cover object-center"
