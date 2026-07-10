@@ -57,7 +57,7 @@ export const tours: Tour[] = [
     idx: "03",
     tag: "Specialist · Ornithology",
     title: "Bird Watching",
-    image: "https://github.com/fortechzpvt/WillpattuWilAadventures/blob/main/assets/IMG_1488.jxl",
+    image: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bird-watching.jpg",
     desc: "Wilpattu hosts 200+ resident and migratory species. Tharaka's ornithological expertise transforms every session into a Sri Lankan avifauna masterclass.",
     pkg: "Birding Expedition",
     items: [
