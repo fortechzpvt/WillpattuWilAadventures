@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { withBasePath } from "@/lib/basePath";
 
 const categories: { title: string; intro?: string; items: string[] }[] = [
   {
@@ -85,7 +84,7 @@ const safetyRules = [
 ];
 
 export default function BungalowLifeSection() {
-  // Raw GitHub URL for the bungalow background
+  // Using the requested image for the bungalow background
   const bungalowBgUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg";
 
   return (
@@ -93,7 +92,7 @@ export default function BungalowLifeSection() {
       {/* Background photo */}
       <Image
         src={bungalowBgUrl}
-        alt=""
+        alt="Wilderness bungalow at Wilpattu"
         fill
         className="object-cover object-center"
         aria-hidden="true"
@@ -168,7 +167,7 @@ export default function BungalowLifeSection() {
           ))}
         </div>
 
-        {/* Wildlife around the bungalow — full width feature */}
+        {/* Wildlife around the bungalow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -202,7 +201,6 @@ export default function BungalowLifeSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Comfort level */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -225,12 +223,8 @@ export default function BungalowLifeSection() {
                 </li>
               ))}
             </ul>
-            <p className="font-sans text-[0.7rem] text-cream/55 leading-[1.5] italic">
-              The focus is on being immersed in nature rather than modern comforts.
-            </p>
           </motion.div>
 
-          {/* Safety — highlighted warning card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
