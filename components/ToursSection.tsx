@@ -15,12 +15,19 @@ export default function ToursSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoNearView = useInView(sectionRef, { once: true, margin: "200px" });
 
-  // Raw GitHub URL for the video
-  const videoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/safari-bg.mp4";
-
   useEffect(() => {
     if (videoNearView) videoRef.current?.play().catch(() => {});
   }, [videoNearView]);
+
+  // Helper to get the correct image URL based on the tour index
+  const getTourImage = (idx: string, originalImage: string) => {
+    const customImages: Record<string, string> = {
+      "01": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/_originals_backup/tharaka.jpg",
+      "02": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bird-watching.jpg",
+      "03": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg",
+    };
+    return customImages[idx] || withBasePath(originalImage);
+  };
 
   return (
     <section id="tours" ref={sectionRef} className="relative py-[92px] px-[7%] overflow-hidden" style={{ background: "#14120c" }}>
@@ -36,7 +43,7 @@ export default function ToursSection() {
           className="absolute inset-0 w-full h-full object-cover"
           aria-hidden="true"
         >
-          <source src={videoUrl} type="video/mp4" />
+          <source src="https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/safari-bg.mp4" type="video/mp4" />
         </video>
       )}
 
@@ -49,6 +56,8 @@ export default function ToursSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto">
+
+        {/* Heading */}
         <div ref={ref} className="text-center mb-14">
           <motion.span
             initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -91,13 +100,14 @@ export default function ToursSection() {
                          hover:shadow-[0_14px_44px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300"
               style={{ background: "rgba(20,18,12,0.55)", backdropFilter: "blur(12px)", border: "1px solid rgba(245,245,211,0.09)" }}
             >
+              {/* Card header */}
               <div
                 className="h-[170px] relative flex flex-col justify-end p-6 overflow-hidden"
                 style={!tour.image ? { background: "linear-gradient(150deg, rgba(127,82,53,0.85), rgba(76,43,18,0.9))" } : undefined}
               >
                 {tour.image && (
                   <>
-                    <Image src={withBasePath(tour.image)} alt={tour.title} fill className="object-cover object-center" />
+                    <Image src={getTourImage(tour.idx, tour.image)} alt={tour.title} fill className="object-cover object-center" />
                     <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,18,12,0.82) 0%, rgba(20,18,12,0.3) 100%)" }} aria-hidden="true" />
                   </>
                 )}
@@ -115,6 +125,8 @@ export default function ToursSection() {
                   {tour.title}
                 </h3>
               </div>
+
+              {/* Body */}
               <div className="p-6 flex-1">
                 <p className="font-sans text-[0.81rem] text-cream/80 leading-[1.7] mb-4 pb-4" style={{ borderBottom: "1px solid rgba(245,245,211,0.15)" }}>
                   {tour.desc}
@@ -139,6 +151,8 @@ export default function ToursSection() {
                   ))}
                 </ul>
               </div>
+
+              {/* Footer */}
               <div className="px-6 pb-6">
                 <Link
                   href={`/book?pkg=${encodeURIComponent(tour.pkg)}`}
