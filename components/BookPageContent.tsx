@@ -120,7 +120,7 @@ export default function BookPageContent() {
                 Important Notice
               </p>
               <p className="font-sans text-[0.94rem] font-bold text-cream leading-[1.5]">
-                If you are booking a bungalow, please send your enquiry at least one month before your travel date.
+                If you have booked a bungalow please send your booking details , If you want to book a bungalow visit(dwc.lankagate.gov.lk).
               </p>
             </div>
           </motion.div>
