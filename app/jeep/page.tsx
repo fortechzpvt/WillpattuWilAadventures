@@ -34,6 +34,9 @@ const specs = [
 ];
 
 export default function JeepPage() {
+  // Raw GitHub URL for the jeep image
+  const jeepImageUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/safari-jeep.jpg";
+
   return (
     <div className="min-h-screen relative">
 
@@ -93,8 +96,8 @@ export default function JeepPage() {
               transition={{ duration: 0.55, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
               className="font-sans text-[0.92rem] text-cream/75 leading-[1.8] mb-6"
             >
-            Custom 6 Seater Toyota Hilux Safari Jeep
-            Built on a rugged 6th Gen Toyota Hilux 4x4 platform, this modified safari vehicle accommodates 6 passengers in custom, elevated stadium seating under an open air viewing canopy. It features a tactical matte black finish, high clearance Cooper Discoverer off road tires, a heavy duty front bumper with a recovery winch, and twin auxiliary spotlights for optimal wildlife tracking.
+              Custom 6 Seater Toyota Hilux Safari Jeep
+              Built on a rugged 6th Gen Toyota Hilux 4x4 platform, this modified safari vehicle accommodates 6 passengers in custom, elevated stadium seating under an open air viewing canopy. It features a tactical matte black finish, high clearance Cooper Discoverer off road tires, a heavy duty front bumper with a recovery winch, and twin auxiliary spotlights for optimal wildlife tracking.
             </motion.p>
 
             <motion.div
@@ -111,7 +114,7 @@ export default function JeepPage() {
           >
             <div className="rounded-[12px] overflow-hidden relative w-full" style={{ aspectRatio: "1/1" }}>
               <Image
-                src={withBasePath("/assets/safari-jeep.jpg")}
+                src={jeepImageUrl}
                 alt="Tharaka's custom matte-black Toyota Hilux safari jeep"
                 fill
                 className="object-cover object-center"
@@ -126,7 +129,7 @@ export default function JeepPage() {
         </div>
       </div>
 
-      {/* Specs */}
+      {/* Specs Section remains identical */}
       <div className="px-[7%] pb-24 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {specs.map(({ title, desc, icon }, i) => (
@@ -155,7 +158,7 @@ export default function JeepPage() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA remains identical */}
         <motion.div
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
@@ -177,7 +180,6 @@ export default function JeepPage() {
           </Link>
         </motion.div>
       </div>
-
     </div>
   );
 }
