@@ -1,8 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { withBasePath } from "@/lib/basePath";
 
 const explore = [
-  { label: "Day Safaris",      href: "#tours"   },
+  { label: "Day Safaris",    href: "#tours"   },
   { label: "Bungalow Stays",   href: "#tours"   },
   { label: "Bird Watching",    href: "#tours"   },
   { label: "About Tharaka",   href: "#about"   },
@@ -13,7 +15,7 @@ const explore = [
 const contact = [
   { label: "Location",      value: "Wilpattu National Park, North Western Province, Sri Lanka" },
   { label: "Enquiries",     value: "WhatsApp enquiries welcomed"                               },
-  { label: "Response Time", value: "Personal response within 24 hours"                        },
+  { label: "Response Time", value: "Personal response within 24 hours"                         },
 ];
 
 const phones = [
@@ -22,17 +24,19 @@ const phones = [
 ];
 
 export default function SiteFooter() {
+  // Raw GitHub URL for the logo
+  const logoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/logo.png";
+
   return (
     <footer style={{ background: "#111310" }} className="px-[7%] pt-14 pb-7">
       <div className="max-w-7xl mx-auto">
-
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[2fr_1fr_1.2fr] gap-8 xl:gap-14 mb-11">
-
+          
           {/* Brand */}
           <div>
             <div className="mb-3.5">
               <Image
-                src={withBasePath("/assets/logo.png")}
+                src={withBasePath(logoUrl)}
                 alt="Wilpattu Wild Adventures logo"
                 width={170}
                 height={80}
@@ -94,7 +98,6 @@ export default function SiteFooter() {
               </li>
             </ul>
           </div>
-
         </div>
 
         {/* Bottom bar */}
@@ -105,7 +108,6 @@ export default function SiteFooter() {
           <span>© 2025 Wilpattu Wild Adventures · Tharaka Rathnayaka · All Rights Reserved</span>
           <span>Wilpattu National Park, Sri Lanka</span>
         </div>
-
       </div>
     </footer>
   );
