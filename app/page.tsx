@@ -1,6 +1,5 @@
 import Header        from "@/components/Header";
 import HeroSection   from "@/components/HeroSection";
-import UspSection    from "@/components/UspSection";
 import WilpattuSection from "@/components/WilpattuSection";
 import ToursSection  from "@/components/ToursSection";
 import AboutSection  from "@/components/AboutSection";
@@ -17,7 +16,6 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <UspSection />
         <WilpattuSection />
         <ToursSection />
         <AboutSection />
