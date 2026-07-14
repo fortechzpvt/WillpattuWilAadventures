@@ -13,8 +13,6 @@ export interface Tour {
   title: string;
   desc: string;
   pkg: string;
-  /** URL-safe identifier used for the static /book/[slug] route. */
-  slug: string;
   image?: string;
   items: TourItem[];
 }
@@ -27,7 +25,6 @@ export const tours: Tour[] = [
     image: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/leopard-resting.jpg",
     desc: "Three time-crafted options revealing distinct facets of Wilpattu's wildlife, from leopard-rich dawn hours to golden-hour elephant encounters.",
     pkg: "Day Safari",
-    slug: "day-safari",
     items: [
       { name: "Half-Day Morning Safari", info: "Enter as mist lifts from the villu lakes. Wilpattu's highest big-cat sighting rate at dawn.", badge: "6.00AM TO 10.30PM",
         detail: "Explore the park during the cool morning hours when wildlife is most active.",
@@ -47,7 +44,6 @@ export const tours: Tour[] = [
     image: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg",
     desc: "Fall asleep to leopard calls and wake to morning bird choruses. Exclusive bungalow accommodation on Wilpattu's wilderness boundary.",
     pkg: "Bungalow Stay",
-    slug: "bungalow-stay",
     items: [
       { name: "Manawila Wildlife Bungalow", info: "", badge: "" },
       { name: "Lunuwewa Wildlife Bungalow", info: "", badge: "" },
@@ -67,7 +63,6 @@ export const tours: Tour[] = [
     image: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bird-watching.jpg",
     desc: "Wilpattu hosts 200+ resident and migratory species. Tharaka's ornithological expertise transforms every session into a Sri Lankan avifauna masterclass.",
     pkg: "Birding Expedition",
-    slug: "birding-expedition",
     items: [
       { name: "Customized Package", info: "Tell us your dates and interests, Tharaka will design a bespoke birding itinerary for you.", badge: "Contact to Arrange Your Journey" },
     ],
