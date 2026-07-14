@@ -22,7 +22,7 @@ export const tours: Tour[] = [
     idx: "01",
     tag: "Private · Fully Guided",
     title: "Day Safaris",
-    image: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/leopard-resting.jpg",
+    image: "/assets/gallery/leopard-resting.jpg",
     desc: "Three time-crafted options revealing distinct facets of Wilpattu's wildlife, from leopard-rich dawn hours to golden-hour elephant encounters.",
     pkg: "Day Safari",
     items: [
@@ -41,7 +41,7 @@ export const tours: Tour[] = [
     idx: "02",
     tag: "Exclusive · Overnight",
     title: "Overnight Stays",
-    image: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg",
+    image: "/assets/bungalow.jpg",
     desc: "Fall asleep to leopard calls and wake to morning bird choruses. Exclusive bungalow accommodation on Wilpattu's wilderness boundary.",
     pkg: "Bungalow Stay",
     items: [
@@ -60,7 +60,7 @@ export const tours: Tour[] = [
     idx: "03",
     tag: "Specialist · Ornithology",
     title: "Bird Watching",
-    image: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bird-watching.jpg",
+    image: "/assets/bird-watching.jpg",
     desc: "Wilpattu hosts 200+ resident and migratory species. Tharaka's ornithological expertise transforms every session into a Sri Lankan avifauna masterclass.",
     pkg: "Birding Expedition",
     items: [
