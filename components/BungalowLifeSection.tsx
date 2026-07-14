@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 const categories: { title: string; intro?: string; items: string[] }[] = [
   {
@@ -84,14 +85,13 @@ const safetyRules = [
 ];
 
 export default function BungalowLifeSection() {
-  // Using the requested image for the bungalow background
-  const bungalowBgUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg";
+  const bungalowBgUrl = "/assets/bungalow.jpg";
 
   return (
     <section className="relative py-12 px-[7%] overflow-hidden">
       {/* Background photo */}
       <Image
-        src={bungalowBgUrl}
+        src={withBasePath(bungalowBgUrl)}
         alt="Wilderness bungalow at Wilpattu"
         fill
         className="object-cover object-center"

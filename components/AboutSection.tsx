@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { withBasePath } from "@/lib/basePath";
 
 const creds = ["Fluent English", "Fluent Sinhala"];
 
@@ -23,8 +24,7 @@ export default function AboutSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   
-  // Tharaka's portrait URL from GitHub
-  const tharakaPortraitUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/tharaka.jpg";
+  const tharakaPortraitUrl = "/assets/tharaka.jpg";
 
   return (
     <section id="about" className="py-[92px] px-[7%] bg-cream">
@@ -40,7 +40,7 @@ export default function AboutSection() {
           >
             <div className="rounded-[8px] overflow-hidden aspect-[3/4] bg-rust relative">
               <Image
-                src={tharakaPortraitUrl}
+                src={withBasePath(tharakaPortraitUrl)}
                 alt="Tharaka Rathnayaka, Private Wilpattu Safari Guide"
                 fill
                 className="object-cover object-top"

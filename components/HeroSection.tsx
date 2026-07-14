@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { withBasePath } from "@/lib/basePath";
 
 function scrollTo(href: string) {
   const el = document.querySelector(href);
@@ -67,7 +68,7 @@ const gradientOverlay = (
 );
 
 export default function HeroSection() {
-  const heroImageUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/hero.jpg";
+  const heroImageUrl = "/assets/hero.jpg";
 
   return (
     <section
@@ -80,7 +81,7 @@ export default function HeroSection() {
       <div className="sm:hidden relative flex flex-col justify-end" style={{ height: 560 }}>
         <div className="absolute inset-0">
           <Image
-            src={heroImageUrl}
+            src={withBasePath(heroImageUrl)}
             alt="Wilpattu National Park wildlife safari landscape"
             fill
             priority
@@ -97,7 +98,7 @@ export default function HeroSection() {
       {/* Tablet/desktop: original full-image overlay design */}
       <div className="hidden sm:block relative w-full overflow-hidden">
         <Image
-          src={heroImageUrl}
+          src={withBasePath(heroImageUrl)}
           alt="Wilpattu National Park wildlife safari landscape"
           width={2400}
           height={1600}

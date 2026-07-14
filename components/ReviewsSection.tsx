@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
+import { withBasePath } from "@/lib/basePath";
 
 interface Review {
   initials: string;
@@ -67,8 +68,7 @@ export default function ReviewsSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoNearView = useInView(sectionRef, { once: true, margin: "200px" });
 
-  // Raw GitHub URL for the reviews background video
-  const videoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/reviews-bg.mp4";
+  const videoUrl = withBasePath("/assets/reviews-bg.mp4");
 
   useEffect(() => {
     if (videoNearView) videoRef.current?.play().catch(() => {});

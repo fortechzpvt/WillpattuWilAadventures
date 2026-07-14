@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 // 1. Define the interface for your props
 interface BookingSectionProps {
@@ -22,8 +23,7 @@ export default function BookingSection({ defaultPackage }: BookingSectionProps) 
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
-  // Background image URL from GitHub
-  const bookingBgUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/booking-bg.jpg";
+  const bookingBgUrl = "/assets/booking-bg.jpg";
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -75,7 +75,7 @@ export default function BookingSection({ defaultPackage }: BookingSectionProps) 
       className="py-[92px] px-[7%] relative overflow-hidden"
     >
       <Image
-        src={bookingBgUrl}
+        src={withBasePath(bookingBgUrl)}
         alt=""
         fill
         className="object-cover object-center"

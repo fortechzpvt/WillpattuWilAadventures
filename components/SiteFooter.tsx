@@ -24,8 +24,7 @@ const phones = [
 ];
 
 export default function SiteFooter() {
-  // Raw GitHub URL for the logo
-  const logoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/logo.png";
+  const logoUrl = "/assets/logo.png";
 
   return (
     <footer style={{ background: "#111310" }} className="px-[7%] pt-14 pb-7">
