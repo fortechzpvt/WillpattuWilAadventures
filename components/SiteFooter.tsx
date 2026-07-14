@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { withBasePath } from "@/lib/basePath";
 
 const explore = [
@@ -25,6 +27,7 @@ const phones = [
 
 export default function SiteFooter() {
   const logoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/logo.png";
+  const isHome = usePathname() === "/";
 
   return (
     <footer style={{ background: "#111310" }} className="px-[7%] pt-14 pb-7">
@@ -58,12 +61,12 @@ export default function SiteFooter() {
             <ul className="flex flex-col gap-2.5">
               {explore.map(({ label, href }) => (
                 <li key={label}>
-                  <a
-                    href={href}
+                  <Link
+                    href={isHome ? href : `/${href}`}
                     className="font-sans text-[0.79rem] text-cream/34 hover:text-gold transition-colors duration-200"
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

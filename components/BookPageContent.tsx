@@ -3,17 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useSearchParams } from "next/navigation";
-import { tours } from "@/lib/tours";
+import type { Tour } from "@/lib/tours";
 import { withBasePath } from "@/lib/basePath";
 import BookingSection from "@/components/BookingSection";
 import BungalowLifeSection from "@/components/BungalowLifeSection";
 
-export default function BookPageContent() {
-  const searchParams = useSearchParams();
-  const pkg = searchParams.get("pkg");
-  const tour = tours.find((t) => t.pkg === pkg) ?? null;
-
+export default function BookPageContent({ tour }: { tour: Tour | null }) {
   return (
     <div className="min-h-screen bg-dark relative">
 

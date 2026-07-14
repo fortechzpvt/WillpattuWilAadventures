@@ -155,7 +155,7 @@ export default function ToursSection() {
               {/* Footer */}
               <div className="px-6 pb-6">
                 <Link
-                  href={`/book?pkg=${encodeURIComponent(tour.pkg)}`}
+                  href={`/book/${tour.slug}`}
                   className="block w-full py-3 rounded-sm font-sans text-[0.84rem] font-bold text-dark bg-gold text-center
                              hover:bg-[#a07342] transition-colors duration-200"
                 >
