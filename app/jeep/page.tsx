@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { withBasePath } from "@/lib/basePath";
 
 const specs = [
   {
@@ -33,8 +34,8 @@ const specs = [
 ];
 
 export default function JeepPage() {
-  const jeepImageUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/safari-jeep.jpg";
-  const jeepVideoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/jeep-bg.mp4";
+  const jeepImageUrl = "/assets/safari-jeep.jpg";
+  const jeepVideoUrl = withBasePath("/assets/jeep-bg.mp4");
 
   return (
     <div className="min-h-screen relative">
@@ -109,7 +110,7 @@ export default function JeepPage() {
           >
             <div className="rounded-[12px] overflow-hidden relative w-full" style={{ aspectRatio: "1/1" }}>
               <Image
-                src={jeepImageUrl}
+                src={withBasePath(jeepImageUrl)}
                 alt="Tharaka's custom matte-black Toyota Hilux safari jeep"
                 fill
                 className="object-cover object-center"
