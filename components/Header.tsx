@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
   { label: "Tours",    href: "#tours"   },
@@ -21,22 +20,8 @@ export default function Header() {
   const [scrolled, setScrolled]   = useState(false);
   const [hidden, setHidden]        = useState(false);
   const [menuOpen, setMenuOpen]    = useState(false);
-  const pathname = usePathname();
-  const router = useRouter();
-  const isHome = pathname === "/";
 
   const logoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/logo.png";
-
-  // On the homepage, section anchors are smooth-scrolled in place. On any
-  // other page (e.g. /jeep, /book) there's nothing to scroll to locally, so
-  // navigate back to the homepage anchor instead.
-  function goTo(href: string) {
-    if (isHome) {
-      scrollTo(href);
-    } else {
-      router.push(`/${href}`);
-    }
-  }
 
   useEffect(() => {
     const onScroll = () => {
@@ -55,7 +40,7 @@ export default function Header() {
 
   function handleNav(href: string) {
     setMenuOpen(false);
-    setTimeout(() => goTo(href), 80);
+    setTimeout(() => scrollTo(href), 80);
   }
 
   return (
@@ -71,8 +56,8 @@ export default function Header() {
 
           {/* Logo */}
           <a
-            href={isHome ? "#hero" : "/#hero"}
-            onClick={(e) => { e.preventDefault(); goTo("#hero"); }}
+            href="#hero"
+            onClick={(e) => { e.preventDefault(); scrollTo("#hero"); }}
             className="flex items-center gap-3"
           >
             <Image
@@ -89,7 +74,7 @@ export default function Header() {
             {navItems.map(({ label, href }) => (
               <button
                 key={label}
-                onClick={() => goTo(href)}
+                onClick={() => scrollTo(href)}
                 className="font-sans text-[0.73rem] font-bold tracking-[1.5px] uppercase text-white hover:text-gold transition-colors duration-200"
                 style={{ textShadow: "0 1px 10px rgba(0,0,0,0.9)" }}
               >
@@ -97,7 +82,7 @@ export default function Header() {
               </button>
             ))}
             <button
-              onClick={() => goTo("#contact")}
+              onClick={() => scrollTo("#contact")}
               className="font-sans text-[0.73rem] font-bold tracking-[0.5px] uppercase
                          bg-gold text-dark px-5 py-2 rounded-sm
                          hover:bg-[#a07342] transition-colors duration-200"
