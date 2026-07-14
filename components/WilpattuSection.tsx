@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { withBasePath } from "@/lib/basePath";
 
 const facts = [
   { value: "131,693", label: "Hectares of Wilderness" },
@@ -13,14 +12,14 @@ const facts = [
 ];
 
 const photos = [
-  { src: "/assets/gallery/DSC04779.jpg", alt: "Sri Lankan leopard walking through golden grassland", caption: "Sri Lankan Leopard on the prowl" },
-  { src: "/assets/gallery/DSC05483-Enhanced-NR.jpg", alt: "Sloth bear emerging from misty forest at dawn", caption: "Sloth Bear at dawn" },
-  { src: "/assets/gallery/DSCN1617.jpg", alt: "Asian elephant standing at a Wilpattu villu lake", caption: "Asian Elephant at a villu" },
-  { src: "/assets/gallery/DSC05228.jpg", alt: "Sloth bear foraging between trees in golden hour light", caption: "Sloth Bear through the forest" },
-  { src: "/assets/gallery/IMG_8045.jpg", alt: "Leopard resting on sandy ground beneath red-flowering bush", caption: "Leopard beneath flowering forest" },
-  { src: "/assets/gallery/DSC05306.jpg", alt: "Sloth bear close-up in dry grassland", caption: "Sloth Bear in dry grassland" },
-  { src: "/assets/gallery/DSCN1459.jpg", alt: "Leopard face peering through tree branches", caption: "Leopard watching from the trees" },
-  { src: "/assets/gallery/leopard-resting.jpg", alt: "Close-up of Sri Lankan leopard resting in grass", caption: "Sri Lankan Leopard at rest" },
+  { src: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/DSC04779.jpg", alt: "Sri Lankan leopard walking through golden grassland", caption: "Sri Lankan Leopard on the prowl" },
+  { src: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/DSC05483-Enhanced-NR.jpg", alt: "Sloth bear emerging from misty forest at dawn", caption: "Sloth Bear at dawn" },
+  { src: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/DSCN1617.jpg", alt: "Asian elephant standing at a Wilpattu villu lake", caption: "Asian Elephant at a villu" },
+  { src: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/DSC05228.jpg", alt: "Sloth bear foraging between trees in golden hour light", caption: "Sloth Bear through the forest" },
+  { src: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/IMG_8045.jpg", alt: "Leopard resting on sandy ground beneath red-flowering bush", caption: "Leopard beneath flowering forest" },
+  { src: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/DSC05306.jpg", alt: "Sloth bear close-up in dry grassland", caption: "Sloth Bear in dry grassland" },
+  { src: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/DSCN1459.jpg", alt: "Leopard face peering through tree branches", caption: "Leopard watching from the trees" },
+  { src: "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/gallery/leopard-resting.jpg", alt: "Close-up of Sri Lankan leopard resting in grass", caption: "Sri Lankan Leopard at rest" },
 ];
 
 /* Per-photo reveal: overlay wipes left, image scales in behind it */
@@ -173,7 +172,7 @@ export default function WilpattuSection() {
             {photos.map(({ src, alt, caption }, i) => (
               <GalleryPhoto
                 key={src}
-                src={withBasePath(src)}
+                src={src}
                 alt={alt}
                 caption={caption}
                 delay={i * 0.07}

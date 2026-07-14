@@ -22,11 +22,11 @@ export default function ToursSection() {
   // Helper to get the correct image URL based on the tour index
   const getTourImage = (idx: string, originalImage: string) => {
     const customImages: Record<string, string> = {
-      "01": "/assets/_originals_backup/tharaka.jpg",
-      "02": "/assets/bungalow.jpg",
-      "03": "/assets/bird-watching.jpg",
+      "01": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/_originals_backup/tharaka.jpg",
+      "02": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bungalow.jpg",
+      "03": "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/bird-watching.jpg",
     };
-    return withBasePath(customImages[idx] || originalImage);
+    return customImages[idx] || withBasePath(originalImage);
   };
 
   return (
@@ -43,7 +43,7 @@ export default function ToursSection() {
           className="absolute inset-0 w-full h-full object-cover"
           aria-hidden="true"
         >
-          <source src={withBasePath("/assets/safari-bg.mp4")} type="video/mp4" />
+          <source src="https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/safari-bg.mp4" type="video/mp4" />
         </video>
       )}
 
