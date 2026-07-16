@@ -75,6 +75,13 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          # wilpattuwildadventures.com is live (see public/CNAME) — the site now serves
+          # from the domain root, so next.config.ts must build with NO basePath prefix.
+          # Without this, the build reverts to the bare GitHub Pages project-page
+          # basePath ("/willpattu-wild-adventures"), which 404s every asset on the
+          # custom domain. See the comment in next.config.ts for the full explanation.
+          NEXT_PUBLIC_CUSTOM_DOMAIN_LIVE: "true"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
