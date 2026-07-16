@@ -1,8 +1,13 @@
 // lib/basePath.ts
 
-// This site only ever deploys to GitHub Pages at /willpattu-wild-adventures, so the
-// prefix is hardcoded here rather than threaded through next.config's `env` option.
-const basePath = process.env.NODE_ENV === "production" ? "/willpattu-wild-adventures" : "";
+// Mirrors the basePath logic in next.config.ts — must stay in sync. Once the
+// custom domain cutover is live (NEXT_PUBLIC_CUSTOM_DOMAIN_LIVE=true at build time,
+// see next.config.ts comment), the site serves from the domain root and needs no prefix.
+const usesCustomDomain = process.env.NEXT_PUBLIC_CUSTOM_DOMAIN_LIVE === "true";
+const basePath =
+  process.env.NODE_ENV === "production" && !usesCustomDomain
+    ? "/willpattu-wild-adventures"
+    : "";
 
 // next/image and next/link auto-prefix basePath, but raw <video>/<source> tags don't,
 // so any hardcoded "/assets/..." path used outside those components needs this helper.
