@@ -26,7 +26,7 @@ export const tours: Tour[] = [
     desc: "Three time-crafted options revealing distinct facets of Wilpattu's wildlife, from leopard-rich dawn hours to golden-hour elephant encounters.",
     pkg: "Day Safari",
     items: [
-      { name: "Half-Day Morning Safari", info: "Enter as mist lifts from the villu lakes. Wilpattu's highest big-cat sighting rate at dawn.", badge: "6.00AM TO 10.30PM",
+      { name: "Half-Day Morning Safari", info: "Enter as mist lifts from the villu lakes. Wilpattu's highest big-cat sighting rate at dawn.", badge: "6.00AM TO 10.00AM",
         detail: "Explore the park during the cool morning hours when wildlife is most active.",
         benefit: "Best chance to spot predators and enjoy pleasant weather." },
       { name: "Half-Day Afternoon Safari", info: "Golden-hour photography, active elephant herds, sloth bear encounters before sunset.", badge: "2.00PM TO 6.00PM",
