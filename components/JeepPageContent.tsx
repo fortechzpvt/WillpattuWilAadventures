@@ -55,7 +55,7 @@ export default function JeepPageContent() {
 
       {/* Back link */}
       <div className="px-[7%] pt-8">
-        <Link
+        <a
           href="/#about"
           className="inline-flex items-center gap-2 font-sans text-[0.78rem] font-semibold text-cream/70 hover:text-gold transition-colors duration-200"
         >
@@ -63,7 +63,7 @@ export default function JeepPageContent() {
             <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
           Back to About
-        </Link>
+        </a>
       </div>
 
       {/* Hero — text left, jeep right */}
