@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Book a private, solo-guided Wilpattu National Park safari with 13-year master tracker Tharaka Rathnayaka. Leopards, sloth bears, elephants & 200+ bird species — no group tours, no middlemen.",
+    "Book private Wilpattu safari tours with an expert . Morning, evening, full-day and Overnight stays in Sri Lanka's largest national park. Leopards, sloth bears, elephants & 200+ bird species.",
   keywords: [
     "Wilpattu safari",
     "Wilpattu National Park safari",
