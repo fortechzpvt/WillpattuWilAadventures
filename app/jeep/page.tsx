@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Header from "@/components/Header";
 import JeepPageContent from "@/components/JeepPageContent";
 
 export const metadata: Metadata = {
@@ -15,5 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function JeepPage() {
-  return <JeepPageContent />;
+  return (
+    <>
+      <Header />
+      <JeepPageContent />
+    </>
+  );
 }
