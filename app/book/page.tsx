@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import Header from "@/components/Header";
 import BookPageContent from "@/components/BookPageContent";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function BookPage() {
   return (
     <Suspense fallback={null}>
+      <Header />
       <BookPageContent />
     </Suspense>
   );
