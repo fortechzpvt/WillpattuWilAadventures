@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -14,12 +15,17 @@ const navItems = [
 function scrollTo(href: string) {
   const el = document.querySelector(href);
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  return !!el;
 }
 
 export default function Header() {
   const [scrolled, setScrolled]   = useState(false);
   const [hidden, setHidden]        = useState(false);
   const [menuOpen, setMenuOpen]    = useState(false);
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   const logoUrl = "https://raw.githubusercontent.com/fortechzpvt/WillpattuWilAadventures/main/public/assets/logo.png";
 
@@ -40,7 +46,11 @@ export default function Header() {
 
   function handleNav(href: string) {
     setMenuOpen(false);
-    setTimeout(() => scrollTo(href), 80);
+    if (isHome) {
+      setTimeout(() => scrollTo(href), 80);
+    } else {
+      router.push(`/${href}`);
+    }
   }
 
   return (
@@ -57,7 +67,7 @@ export default function Header() {
           {/* Logo */}
           <a
             href="#hero"
-            onClick={(e) => { e.preventDefault(); scrollTo("#hero"); }}
+            onClick={(e) => { e.preventDefault(); handleNav("#hero"); }}
             className="flex items-center gap-3"
           >
             <Image
@@ -74,7 +84,7 @@ export default function Header() {
             {navItems.map(({ label, href }) => (
               <button
                 key={label}
-                onClick={() => scrollTo(href)}
+                onClick={() => handleNav(href)}
                 className="font-sans text-[0.73rem] font-bold tracking-[1.5px] uppercase text-white hover:text-gold transition-colors duration-200"
                 style={{ textShadow: "0 1px 10px rgba(0,0,0,0.9)" }}
               >
@@ -82,7 +92,7 @@ export default function Header() {
               </button>
             ))}
             <button
-              onClick={() => scrollTo("#contact")}
+              onClick={() => handleNav("#contact")}
               className="font-sans text-[0.73rem] font-bold tracking-[0.5px] uppercase
                          bg-gold text-dark px-5 py-2 rounded-sm
                          hover:bg-[#a07342] transition-colors duration-200"
